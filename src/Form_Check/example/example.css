@@ -1,0 +1,432 @@
+*, *::after, *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+:root {
+      /* Colors */
+      --blue: #0077FF;
+      --red: #EA2B4B;
+
+      /* Used on hover, text for dark mode, default button background */
+      --gray1: #EAEAEA;
+
+      /* Used on light mode border color */
+      --gray2: #ADADAD;
+
+      /* Used on dark mode border color */
+      --gray3: #4A4A4A;
+
+      /* Used on hover for dark mode */
+      --gray4: #363636;
+
+      /* Used for text on light mode */
+      --gray5: #6E6E6E;
+
+      /* Borders */
+      --borderRadius: 3px;
+      --border: 1px solid var(--gray2);
+      --borderTCurve: var(--borderRadius) var(--borderRadius) 0 0;
+      --borderBCurve: 0 0 var(--borderRadius) var(--borderRadius);
+      --borderLCurve: var(--borderRadius) 0 0 var(--borderRadius);
+      --borderRCurve: 0 var(--borderRadius) var(--borderRadius) 0;
+}
+
+body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+form {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      margin: 5rem 0;
+}
+
+.level {
+      display: flex;
+      width: inherit;
+      overflow-x: clip;
+}
+
+/* Common Input Theme */
+
+select:hover,
+.input:hover, 
+.inputSideCaption,
+.checkboxItem:hover,
+.segmentButton:not(.selected):hover {
+      background: var(--gray1);
+} 
+
+select,
+button,
+.input,
+.segment,
+.checkbox, 
+.checkboxItem {
+      background: transparent;
+      border: var(--border);
+      border-radius: var(--borderRadius);
+}
+
+select,
+option,
+button,
+.input,
+.checkbox,
+.inputSideCaption,
+.dropdownItem {
+      padding: 10px;
+}
+
+/* Error */
+
+.inputField.error .input,
+.inputField.error select,
+.inputField.error .checkbox,
+.inputField.error .checkboxItem,
+.inputField.error .segmentButton,
+.inputField.error .inputSideCaption,
+.inputField.error .segmentButton.selected,
+.inputField.error .checkboxItem.selected .checkboxMark {
+      border-color: var(--red) !important;
+}
+
+.inputField.error .segmentButton,
+.inputField.error select {
+      color: var(--red);
+}
+
+.inputField.error .segmentButton.selected,
+.inputField.error .inputSideCaption,
+.inputField.error .checkboxItem.selected .checkboxMark {
+      background: var(--red);
+      color: white;
+}
+
+.inputField.error .errorMessage {
+      display: block;
+}
+
+.inputField.error .inputLabel {
+      color: var(--red);
+}
+
+.errorMessage {
+      color: var(--red) !important;
+      display: none;
+} 
+
+/* Input Field */
+
+.inputField {
+      display: flex;
+      flex-direction: column;
+      width: inherit;
+      row-gap: 5px;
+}
+
+.inputField *, .inputLabel, button {
+      font-family: 'DM Sans';
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray5);
+}
+
+/* Button */
+
+button {
+      background: var(--gray1);
+}
+
+button#submit,
+button.primary {
+      color: white;
+      font-size: 14px;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+}
+
+button.ghost {
+      background: white;
+      border: 2px solid var(--blue);
+      color: var(--blue);
+}
+
+button.secondary {
+      color: var(--blue);
+      background: #0064ff45;
+      border: none;
+}
+
+button.danger {
+      background: var(--red);
+      border: none;
+      color: white;
+}
+
+button.neutral {
+      background: var(--gray1);
+      border: none;
+      color: var(--gray5);
+}
+
+.inputField.error:has(+button#submit) + button#submit {
+      background: var(--red);
+      border-color: var(--red);
+}
+
+/* Dark Form */
+
+form.dark button,
+form.dark .inputField * {
+      color: var(--gray1);
+}
+
+form.dark select,
+form.dark .input, 
+form.dark .inputSideCaption,
+form.dark .checkbox, 
+form.dark .checkboxItem, 
+form.dark .checkboxMark,
+form.dark .segmentButton, 
+form.dark .segmentButton:not(:first-child):not(:last-child) {
+      border-color: var(--gray3);
+}
+ 
+form.dark select:hover,
+form.dark .input:hover, 
+form.dark option:hover,
+form.dark .inputSideCaption,
+form.dark .checkboxItem:hover, 
+form.dark .dropdownItem:hover,
+form.dark .dropdownButton:hover, 
+form.dark .segmentButton:not(.selected):hover {
+      background: var(--gray4);
+}
+
+form.dark select:focus,
+form.dark select:focus option,
+form.dark option {
+      background: #1F1F1F;
+}
+
+form.dark select:focus {
+      color: var(--blue);
+}
+
+/* Input */
+
+.input {
+      width: inherit;
+}
+
+.input:focus {
+      background: transparent;
+}
+
+.inputSideCaption {
+      height: auto;
+      border: var(--border);
+      border-right: none;
+      border-radius: var(--borderLCurve);
+}
+
+.inputSideCaption + .input {
+      width: 100%;
+      border-radius:var(--borderRCurve);
+}
+
+.inputField.error .inputSideCaption {
+      border: 1px solid var(--red);
+}
+
+/* Segment */
+
+.segment {
+      display: grid;
+      width: inherit;
+      border: none;
+}
+
+.segment.three {
+      grid-template-columns: repeat(3, 33.33%);
+}
+
+.segment.four {
+      grid-template-columns: repeat(4, 25%);
+}
+
+.segment.five {
+      grid-template-columns: repeat(5, 20%);
+}
+
+.segmentButton:first-child,
+.segment > .level > .inputField:first-child select {
+      border-radius: var(--borderLCurve);
+}
+
+.segmentButton:last-child,
+.segment > .level > .inputField:last-child select {
+      border-radius: var(--borderRCurve);
+}
+
+.segmentButton:not(:first-child):not(:last-child),
+.segment > .level > .inputField:not(:first-child):not(:last-child) select {
+      border-radius: 0;
+      border-right: none;
+}
+
+.segmentButton:nth-child(2),
+.segment > .level > .inputField:not(:first-child):not(:last-child) select {
+      border-left: none !important;
+}
+
+.segment .level .inputLabel {
+      font-size: 11px;
+      color: var(--gray2);
+}
+
+/* Segmented Buttons */
+
+.segmentButton {
+      background: transparent;
+      border: var(--border);
+      overflow-x: clip;
+      text-align: center;
+}
+
+.segmentButton.selected {
+      border-color: var(--blue) !important;
+      background: var(--blue);
+      color: white;
+}
+
+.segmentButton:has(+.segmentButton.selected) {
+      border-right: none;
+}
+
+.segmentButton.selected + .segmentButton {
+      border-left: none;
+}
+
+/* Select */
+
+select:hover option {
+      background: white;
+}
+
+select:focus {
+      background: white;
+      color: var(--blue);
+}
+
+/* Checkbox */
+
+.checkbox {
+      display: flex;
+      flex-wrap: wrap;
+      width: inherit;
+      gap: 5px;
+}
+
+.checkboxItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 5px;
+      padding: 5px 10px;
+}
+
+.checkboxItem.selected {
+      color: var(--blue);
+}
+
+.checkboxMark {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border: var(--border);
+      border-radius: 2px;
+}
+
+.checkboxItem:hover:not(.selected) .checkboxMark {
+      box-shadow: 0 0 1px 1px var(--blue);
+      border: none;
+}
+
+.checkboxItem.selected .checkboxMark {
+      background: var(--blue);
+      border: 1px solid var(--blue);
+}
+
+.inputField.error .checkboxItem:hover:not(.selected) .checkboxMark {
+      box-shadow: 0 0 1px 1px var(--red);
+}
+
+.inputField.error .checkboxItem.selected {
+      color: var(--red);
+}
+
+/* Pointer Cursor */
+
+select,
+button,
+.checkboxItem,
+.dropdownItem,
+.segmentButton,
+.dropdownButton {
+      cursor: pointer;
+} 
+
+/* Outline and/or Focus */
+
+select:focus,
+button:focus {
+      border: 1px solid var(--blue);
+      outline: 2px solid #0077ff36;
+}
+
+.input:focus {
+      border: 1px solid var(--blue);
+      outline: 2px solid #0077ff36;
+}
+
+.inputField:not(.error) div.inputSideCaption:has(+.input:focus) {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: white;
+}
+
+.level:has(>.inputSideCaption):has(>.input:focus) {
+      border: 1px solid var(--blue);
+      border-radius: 4px;
+      outline: 2px solid #0077ff36;
+}
+
+.level:has(>.inputSideCaption):has(>.input:focus) > .input:focus {
+      border: none;
+      outline: none;
+}
+
+.inputField.error select:focus,
+.inputField.error button:focus,
+.inputField.error:has(+button#submit) + button#submit:focus {
+      border: 1px solid var(--red);
+      outline: 2px solid #ff00002b;
+}
+
+.inputField.error .input:focus {
+      border: 1px solid var(--red);
+      outline: 2px solid #ff00002b;
+}
+
+.inputField.error .level:has(>.inputSideCaption):has(>.input:focus) {
+      border: 1px solid var(--red);
+      outline: 2px solid #ff00002b;
+}
