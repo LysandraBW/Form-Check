@@ -6,7 +6,7 @@ const REGEX = {
       Number: /([0-9])/,
       Name: /^([A-Z]).*([A-Z])*$/i,
       Email: /^([\w\d])+@([\w\d])+.([A-Z])+$/i,
-      Phone: /\((\d){3}\)-(\d){3}-(\d){4}$/,
+      Phone: /(\d){3}-(\d){3}-(\d){4}$/,
       VIN: /^[A-HJ-NPR-Z0-9]{17}$/i
 }
 
