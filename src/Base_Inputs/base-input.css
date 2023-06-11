@@ -1,0 +1,534 @@
+/* Field */
+
+field {
+      display: flex;
+      flex-direction: column;
+      row-gap: 5px;
+      width: 100%;
+}
+
+
+/* General Text */
+
+field *, button {
+      font-family: var(--generalFont);
+      font-size: 0.775rem;
+      font-weight: 400;
+      color: var(--light-contrast-text-medium);
+}
+
+#dark field *, button {
+      color: var(--dark-contrast-text-medium);
+}
+
+/* Element Themes */
+
+input,
+select, 
+button, 
+textarea, 
+side-label,
+button.checkbox-item,
+button.segment,
+button.checkbox-item span,
+checkbox-container {
+      padding: 8px 10px;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--light-border-color);
+}
+
+#dark input,
+#dark select, 
+#dark button, 
+#dark textarea, 
+#dark side-label,
+#dark button.checkbox-item,
+#dark button.segment,
+#dark button.checkbox-item span,
+#dark checkbox-container {
+      border-color: var(--dark-border-color);
+}
+
+input,
+select,
+textarea {
+      background: transparent;
+}
+
+input, 
+select,
+textarea,
+button.segment,
+segment-box.select,
+checkbox-container label
+segment-box.select > div > label {
+      color: var(--light-contrast-text-light);
+}
+
+#dark input, 
+#dark select,
+#dark textarea,
+#dark button.segment,
+#dark segment-box.select,
+#dark checkbox-container label,
+#dark segment-box.select > div > label {
+      color: var(--dark-contrast-text-light);
+}
+
+input,
+select,
+segment-box {
+      width: 100%;
+}
+
+
+/* Button */
+
+button {
+      background: var(--light-gray);
+} 
+
+#dark button {
+      background: var(--dark-gray);
+}
+
+/* Input w Side Label */
+
+input-side-label {
+      display: flex;
+      flex-direction: row;
+      overflow-x: clip;
+}
+
+side-label {
+      height: auto;
+      background: var(--light-gray);
+      border-radius: var(--border-l-curve);
+      border-right: none;
+}
+
+#dark side-label {
+      background: var(--dark-gray);
+}
+
+input-side-label > input {
+      border-radius: var(--border-r-curve);
+}
+
+
+/* General Segment */
+
+segment-box {
+      display: grid;
+}
+
+segment-box > *:first-child,
+segment-box > *:first-child > select {
+      border-radius: var(--border-l-curve);
+}
+
+segment-box > *:last-child,
+segment-box > *:last-child > select {
+      border-radius: var(--border-r-curve);
+      border-left: none;
+}
+
+segment-box > *:not(:first-child):not(:last-child),
+segment-box > *:not(:first-child):not(:last-child) > select {
+      border-radius: 0;
+      border-left: none;
+}
+
+segment-box.three {
+      grid-template-columns: repeat(3, 33%);
+}
+
+segment-box.four {
+      grid-template-columns: repeat(4, 25%);
+}
+
+segment-box.five {
+      grid-template-columns: repeat(5, 20%);
+}
+
+
+/* Segment for Buttons */
+
+button.segment {
+      position: relative;
+      text-align: center;
+      background-color: transparent;
+}
+
+#dark button.segment {
+      background-color: transparent;
+}
+
+
+/* Segment for Selects */
+
+segment-box.select > div > label {
+      display: block;
+      font-size: 12px;
+}
+
+
+/* Checkbox */
+
+checkbox-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: 7px;
+}
+
+checkboxes {
+      display: flex;
+      flex-wrap: wrap;
+      width: inherit;
+      gap: 7px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+}
+
+button.checkbox-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 5px;
+      background: transparent;
+      padding: 5px 10px;
+}
+
+#dark button.checkbox-item {
+      background: transparent;
+}
+
+button.checkbox-item > span {
+      width: 8px;
+      height: 8px;
+      padding: 0px;
+      border-radius: 0px;
+}
+
+button.checkbox-item > label,
+checkbox-container > label {
+      font-size: 12px;
+}
+
+
+/* Text Area */
+
+textarea {
+      resize: none;
+}
+
+
+
+/* General Hover */
+
+select:hover,
+button:hover {
+      cursor: pointer;
+}
+
+button.segment:hover {
+      cursor: initial;
+}
+
+input:hover, 
+select:hover,
+textarea:hover,
+button.checkbox-item:hover,
+button.segment:not(.selected):hover {
+      background: var(--light-gray);
+}
+
+#dark input:hover,
+#dark select:hover,
+#dark textarea:hover,
+#dark button.checkbox-item:hover,
+#dark button.segment:not(.selected):hover {
+      background: var(--dark-gray);
+}
+
+
+/* General Focus */
+
+input:focus, 
+select:focus,
+textarea:focus {
+      background: transparent;
+}
+
+input:focus, 
+button:focus, 
+select:focus, 
+textarea:focus,
+button.checkbox-item:focus,
+button.segment:focus,
+input-side-label:has(input:focus) {
+      outline: 2px solid #4086ff33;
+      border: 1px solid var(--accent);
+      border-color: var(--accent) !important;
+}
+
+
+/* Focus: Checkbox */
+
+button.checkbox-item.selected:focus {
+      background: transparent !important;
+}
+
+
+/* Focus: Select */
+
+select:focus {
+      color: var(--accent) !important;
+      position: relative;
+      z-index: 1;
+}
+
+select:focus option {
+      color: var(--light-contrast-text-light);
+}
+
+#dark select:focus option {
+      color: var(--dark-contrast-text-light);
+}
+
+/* Focus: Segment */
+
+segment-box.select select:focus {
+      border-left: 1px solid var(--accent);
+}
+
+button.segment:focus {
+      border-color: var(--accent) !important;
+      border-left: 1px solid var(--accent) !important;
+}
+
+/* Focus: Input w Side Label */
+
+input-side-label:has(input:focus) {
+      border-radius: calc(var(--border-radius) + 1px);
+}
+
+input-side-label:has(input:focus) side-label {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: white;
+}
+
+input-side-label input:focus {
+      outline: none;
+      border: none;
+}
+
+
+/* General Select */
+
+
+/* Selected: Checkbox */
+
+button.checkbox-item.selected span {
+      outline: 1px solid var(--accent);
+      outline-offset: 1px;
+      background: var(--accent);
+      border: none;
+}
+
+button.checkbox-item.selected label {
+      color: var(--accent);
+}
+
+
+/* Selected: Segmented Buttons */
+
+button.segment.selected {
+      background-color: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: white !important;
+      z-index: 1;
+}
+
+button.segment:has(+.selected) {
+      border-right: none;
+}
+
+
+
+/* General Errors */
+
+error {
+      color: var(--red);
+      display: none;
+}
+
+#dark error {
+      color: var(--red);
+}
+
+field.error error {
+      display: block;
+}
+
+field.error > label {
+      color: var(--red);
+}
+
+#dark field.error > label {
+      color: var(--red);
+}
+
+/* Error: Outline and Borders */
+
+field.error input, 
+field.error textarea,
+field.error side-label,
+field.error > select.error,
+field.error input-side-label,
+field.error checkbox-container {
+      border-color: var(--red);
+}
+
+#dark field.error input,
+#dark field.error textarea,
+#dark field.error side-label,
+#dark field.error > select.error, 
+#dark field.error input-side-label,
+#dark field.error checkbox-container {
+      border-color: var(--darkRed);
+}
+
+field.error input:focus, 
+field.error select:focus, 
+field.error textarea:focus,
+field.error button.checkbox-item:focus,
+field.error button.segment:focus,
+field.error input-side-label:has(input:focus)  {
+      outline: 2px solid #ffc9c9;
+      border: 1px solid var(--red);
+      border-color: var(--red) !important;
+}
+
+#dark field.error input:focus, 
+#dark field.error select:focus, 
+#dark field.error textarea:focus,
+#dark field.error button.checkbox-item:focus,
+#dark field.error button.segment:focus,
+#dark field.error input-side-label:has(input:focus)  {
+      outline: 2px solid #fa3c3c85 !important;
+      border: 1px solid var(--darkRed) !important;
+      border-color: var(--darkRed) !important;   
+}
+
+
+/* Error: Input w Side Label */
+
+#dark field.error input-side-label > input:focus,
+field.error input-side-label > input:focus {
+      border: none !important;
+      outline: none !important;
+}
+
+field.error input-side-label > side-label {
+      background-color: var(--red) !important;
+      border-color: var(--red) !important;
+      color: white;
+}
+
+#dark field.error input-side-label > side-label {
+      background-color: var(--darkRed) !important;
+      border-color: var(--darkRed) !important;
+      color: white;  
+}
+
+/* Error: Segment Button */
+
+field.error button.segment.selected {
+      background-color: var(--red) !important;
+      border-color: var(--red) !important;
+}
+
+#dark field.error button.segment.selected {
+      background-color: var(--darkRed) !important;
+      border-color: var(--darkRed) !important;
+}
+
+
+
+/* Error: Segment Select */
+
+field.error segment-box.select div.error select {
+      border-color: var(--red);
+      color: var(--red);
+}
+
+#dark field.error segment-box.select div.error select {
+      border-color: var(--darkRed);
+      color: var(--darkRed);
+}
+
+field.error segment-box.select div:has(+div.error) select {
+      border-right-color: var(--red);
+}
+
+#dark field.error segment-box.select div:has(+div.error) select {
+      border-right-color: var(--darkRed);
+}
+
+
+/* Error: Select */
+
+field.error select:focus {
+      color: var(--red) !important;
+      border-color: var(--red);
+      border-left-color: var(--red) !important;
+}
+
+#dark field.error select:focus {
+      color: var(--darkRed) !important;
+      border-color: var(--darkRed);
+      border-left-color: var(--darkRed) !important;
+}
+
+
+/* Error: Checkbox */
+
+field.error button.checkbox-item.selected label {
+      color: var(--red);
+}
+
+#dark field.error button.checkbox-item.selected label {
+      color: var(--darkRed);
+}
+
+field.error button.checkbox-item.selected span {
+      background-color: var(--red);
+      outline-color: var(--red);
+}
+
+#dark field.error button.checkbox-item.selected span {
+      background-color: var(--darkRed);
+      outline-color: var(--darkRed);
+}
+
+
+/* Error: Outline and Borders: Button */
+
+button.error {
+      background: var(--red);
+      border: none;
+      color: white;
+}
+
+#dark button.error {
+      background: var(--darkRed);
+      border: none;
+      color: white;
+}
+
+button.error:focus {
+      outline: 2px solid #ffc9c9;
+      border: 1px solid var(--darkRed) !important;
+}

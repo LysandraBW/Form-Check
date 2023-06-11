@@ -1,0 +1,45 @@
+*, *::after, *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+:root {
+      /* Font Family */
+      --generalFont: 'Prompt';
+
+      /* Background  */
+      --dark-bodyBG: black;
+      --light-bodyBG: white;
+
+      /* Text */
+      --dark-contrast-text-high: white;
+      --dark-contrast-text-medium: #C8C8C8;
+      --dark-contrast-text-light: #85858A;
+
+      --light-contrast-text-high: black;
+      --light-contrast-text-medium: #6E6E6E;
+      --light-contrast-text-light: #A5A5A5;
+
+      /* Border */
+      --dark-border-color: #5C5C5C;
+      --light-border-color: #ADADAD;
+
+      --border-radius: 0px;
+      --border-t-curve: var(--border-radius) var(--border-radius) 0 0;
+      --border-b-curve: 0 0 var(--border-radius) var(--border-radius);
+      --border-l-curve: var(--border-radius) 0 0 var(--border-radius);
+      --border-r-curve: 0 var(--border-radius) var(--border-radius) 0;
+
+      /* Shades of Gray */
+      --dark-gray: #1E1E1E;
+      --light-gray: #EFEFEF;
+
+      /* Color */
+      --accent: #006AFF;
+      --red: #DA1A1A;
+      --darkRed: #E52222;
+      --yellow: yellow;
+      --green: green;
+      --blue: blue;
+}

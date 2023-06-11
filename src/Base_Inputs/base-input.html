@@ -1,0 +1,165 @@
+<head>
+     <link rel="stylesheet" href="base.css">
+     <link rel="stylesheet" href="base-input.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500&display=swap" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+     <script src="response.js"></script>
+     <title>Basic Inputs</title>
+</head>
+<body style="display:flex;flex-direction:column;justify-content:center;margin:2rem;width:300px;row-gap:3rem">
+     <!-- Text Inputs -->
+     <div style="display:flex;flex-direction:column;row-gap:2rem;width:inherit">
+          <p style="font-family: var(--generalFont);color:gray;">Text Inputs</p>
+          <field>
+               <label>Label 1</label>
+               <input type="text">
+               <error>Bad</error>
+          </field>
+          <field>
+               <label>Label 1</label>
+               <input type="date">
+               <error>Bad</error>
+          </field>
+          <field>
+               <label>Label 2</label>
+               <input-side-label>
+                    <side-label>Label</side-label>
+                    <input type="text">
+               </input-side-label>
+               <error>Bad</error>
+          </field>
+          <field>
+               <label>Label 3</label>
+               <textarea></textarea>
+               <error>Bad</error>
+          </field>
+     </div> 
+     <!-- Buttons (Radio/Segment) -->
+     <div style="display:flex;flex-direction:column;row-gap:2rem;width:inherit">
+          <p style="font-family: var(--generalFont);color:gray;">Segment Buttons</p>
+
+          <field>
+               <label>Label 5</label>
+               <segment-box class="button three">
+                    <button class="segment">1</button>
+                    <button class="segment">2</button>
+                    <button class="segment">3</button>
+               </segment-box>
+               <error>Bad</error>
+          </field>
+          <field>
+               <label>Label 6</label>
+               <segment-box class="button four">
+                    <button class="segment">1</button>
+                    <button class="segment">2</button>
+                    <button class="segment">3</button>
+                    <button class="segment">4</button>
+               </segment-box>
+               <error>Bad</error>
+          </field>
+          <field>
+               <label>Label 7</label>
+               <segment-box class="button five">
+                    <button class="segment">1</button>
+                    <button class="segment">2</button>
+                    <button class="segment">3</button>
+                    <button class="segment">4</button>
+                    <button class="segment">5</button>
+               </segment-box>
+               <error>Bad</error>
+          </field>
+     </div>
+     <!-- Select/Option -->
+     <div style="display:flex;flex-direction:column;row-gap:2rem;width:inherit">
+          <p style="font-family: var(--generalFont);color:gray;">Select Inputs</p>
+          <field>
+               <label>Label 8</label>
+               <select>
+                    <option>Label 1</option>
+                    <option>Label 2</option>
+                    <option>Label 3</option>
+               </select>
+          </field>
+          <field>
+               <label>Label 9</label>
+               <segment-box class="select three">
+                    <div>
+                         <label>Label 9</label>
+                         <select>
+                              <option>Label 1</option>
+                              <option>Label 2</option>
+                              <option>Label 3</option>
+                         </select>
+                    </div>
+                    <div>
+                         <label>Label 9</label>
+                         <select>
+                              <option>Label 1</option>
+                              <option>Label 2</option>
+                              <option>Label 3</option>
+                         </select>
+                    </div>
+                    <div>
+                         <label>Label 9</label>
+                         <select>
+                              <option>Label 1</option>
+                              <option>Label 2</option>
+                              <option>Label 3</option>
+                         </select>
+                    </div>
+               </segment-box>
+               <error>Bad</error>
+          </field>
+     </div>
+     <!-- Checkbox -->
+     <div style="display:flex;flex-direction:column;row-gap:2rem;width:inherit">
+          <p style="font-family: var(--generalFont);color:gray;">Checkbox Input</p>
+          <field>
+               <label>Label 10</label>
+               <checkbox-container>
+                    <label>Label 10</label>
+                    <checkboxes>
+                         <button class="checkbox-item">
+                              <span></span>
+                              <label>1</label>
+                         </button>
+                         <button class="checkbox-item">
+                              <span></span>
+                              <label>10</label>
+                         </button>
+                         <button class="checkbox-item">
+                              <span></span>
+                              <label>100</label>
+                         </button>
+                         <button class="checkbox-item">
+                              <span></span>
+                              <label>1000</label>
+                         </button>
+                         <button class="checkbox-item">
+                              <span></span>
+                              <label>10000</label>
+                         </button>
+                         <button class="checkbox-item">
+                              <span></span>
+                              <label>100000</label>
+                         </button>
+                         <button class="checkbox-item">
+                              <span></span>
+                              <label>1000000</label>
+                         </button>
+                    </checkboxes>
+               </checkbox-container>
+          </field>
+     </div>
+     <!-- Buttons -->
+     <div style="display:flex;flex-direction:column;row-gap:2rem;width:inherit">
+          <p style="font-family: var(--generalFont);color:gray;">Buttons</p>
+          <button>Button</button>
+          <button class="error">Button</button>
+          <button>Button</button>
+          <button>Button</button>
+          <button>Button</button>
+     </div>
+</body>
