@@ -53,26 +53,26 @@ const Functions = {
 
 const Check = {
       Name: (s) => {
-            c = []
+            let c = []
             if (Functions.Blank(s)) return [ERROR.Type_Blank]
             if (Regex.Symbol.test(s)) c.push(ERROR.Code_Symbols)
             if (Regex.Number.test(s)) c.push(ERROR.Code_Numbers)
             return c
       },
       Email: (s) => {
-            c = []
+            let c = []
             if (Functions.Blank(s)) return [ERROR.Type_Blank]
             if (!Regex.Email.test(s)) c.push(ERROR.Code_Invalid_Email)
             return c
       },
       Phone: (s) => {
-            c = []
+            let c = []
             if (Functions.Blank(s)) return [ERROR.Type_Blank]
             if (!Regex.Phone.test(s)) c.push(ERROR.Code_Invalid_Phone)
             return c
       },
       VIN: (s) => {
-            c = []
+            let c = []
             if (Functions.Blank(s)) return [ERROR.Type_Blank]
             if (!Regex.VIN.test(s)) return [ERROR.Code_Invalid_VIN]
             return c
@@ -93,7 +93,7 @@ const Check = {
             return Functions.Exists(Compare.Services, s)
       },
       Length: (s, l) => {
-            c = []
+            let c = []
             if (Functions.Blank(s)) return [ERROR.Type_Blank]
             if (s.length !== Number(l)) return [ERROR.Code_Numbers]
             return c
