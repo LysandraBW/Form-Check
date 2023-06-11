@@ -64,7 +64,7 @@ FC.FCIdentifier = ".check"
 FC.getName = (element) => element.getAttribute("name")
 FC.getData = (name) => $(`[name=${name}]`).val()
 FC.getRequirements = (element) => element.getAttribute("requirements")
-FC.getLabel = (name) => $(`[name=${name}]`).attr("inputLabel")
+FC.getLabel = (name) => $(`[name=${name}]`).getAttribute("inputLabel")
 FC.delError = (name) => $(`[name='${name}']`).parents(".inputField").removeClass("error")
 FC.addError = (name, label, error) => {
       let inputField = $(`[name='${name}']`).parents(".inputField")
