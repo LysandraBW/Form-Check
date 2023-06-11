@@ -1,3 +1,5 @@
+const FC = new FormCheck()
+
 $(window).on("load", function() {
       const FC = new FormCheck()
 
