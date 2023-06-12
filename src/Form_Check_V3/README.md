@@ -11,7 +11,6 @@ The structuring of the Error class hasn't changed. You configure error messages 
 Before:<br>
 ```
 (inputLabel, keywords) => `${inputLabel} must include ${Functions.Join(keywords)}.`
-
 ```
 
 After:<br>
