@@ -1,5 +1,5 @@
-Form Check<br>
-Version 1<br>
+# Form Check<br>
+## Version 1<br>
 
 Imagine that you wanted to create an input where a user enters in their email.<br>
 The user enters in their email and presses submit.<br>
@@ -20,17 +20,22 @@ You have several inputs on your page that you need to verify.<br>These functions
 simple as a phone number or a name, or maybe you'd prefer your own error messages and error styling.<br>
 
 What can you possibly do?<br>
-Introducing Form Check (Version 1)<br>
-  -Dependencies: jQuery<br>
+# Introducing Form Check (Version 1)<br>
+  ### Dependencies: jQuery<br>
   
-1 Load inputs to be checked via an identifier. By default, elements with a class of "check" (if I can remember correctly) will be checked. Furthermore, you must pass in a jQuery element that is an ancestor to the inputs you want to check. This is so you can target specific elements instead of every input on the entire page. You can set the identifier that is used to find the inputs (really elements) that are to be checked via the overrideInputIdentifier(s) function, where s is a query that can be used to find elements.
+## 1 Loading Inputs <br>
+We must first load the inputs to be checked via an identifier. By default, elements with a class of "check" (if I can remember correctly) will be checked. Furthermore, you must pass in a jQuery element that is an ancestor to the inputs you want to check. This is so you can target specific elements instead of every input on the entire page. You can set the identifier that is used to find the inputs (really elements) that are to be checked via the overrideInputIdentifier(s) function, where s is a query that can be used to find elements.
 
-2 To check the inputs, we need to get their value. There is a default way of getting an input's value, but this may not work under every context, so you can set the function that is used to find the input's value via the overrideInputValue(f) function, where f is a function that takes in a name and returns the value of the element with said name.
+## 2 Checking Inputs <br>
+To check the inputs, we need to get their value. There is a default way of getting an input's value, but this may not work under every context, so you can set the function that is used to find the input's value via the overrideInputValue(f) function, where f is a function that takes in a name and returns the value of the element with said name.
 
-3 Inputs that fail their requirements are said to have errors. To show this to the user, there is a type of styling elements with errors have (usually something red). There is a default way to add this error to an input and remove it from the input (given the name), but this only works under a specific structure. Therefore, you can also set these via the addError(name, errorType, errorDetails) and removeError(name) functions. I have not gotten into the error aspect of Form Check yet, so I won't be explaining those parameters yet.
+## 3 Errors <br>
+Inputs that fail their requirements are said to have errors. To show this to the user, there is a type of styling elements with errors have (usually something red). There is a default way to add this error to an input and remove it from the input (given the name), but this only works under a specific structure. Therefore, you can also set these via the addError(name, errorType, errorDetails) and removeError(name) functions. I have not gotten into the error aspect of Form Check yet, so I won't be explaining those parameters yet.
 
-4 Requirements<br>
+## 4 Requirements <br>
+```
 <input class="check" name="fName" requirements="name">
+```
 This input has a class of "check", a name of "fName", and a requirements of "name".
 The name attribute is used for a plethora of reasons, one of them being so that we can access this input's
 value after we have loaded it. 
@@ -41,11 +46,13 @@ How it's currently set up, you may have to be repetitive with the functions you 
 For example, if you wanted a requirement called "length" that tests if the input is a certain length, but you also wanted to reuse this requirement throughout your page and with different lengths, you would just have to create multiple functions like lengthFive, lengthTwo, lengthFourtyFive, and so on. This is because I didn't have a way of evaluating parameters in this version. Ideally, you would be able to do something like lengths(5) in your requirements attribute, and it would run the function for the requirement "lengths" and pass in the value 5 (along with the value of the input).
 Fortunately, this is fixed in version 2.
 
-5 Error Handling<br>
+## 5 Error Handling <br>
 The input fails a requirement, but how did it fail the requirement? Did it have too many letters? Did it not have a certain symbol? Was there no input to check? This is what error codes are used for. Error codes (in the context of Form Check) are a convenient way for me to bundle information about what went wrong in a requirement. An error code is really a string that is used to refer to a type of error and some keywords in said error.
 
 For example:<br>
+```
 Error.configureCode("Numbers", "Inclusion", "numbers")<br>
+```
 
 This error code that goes by the name of "Numbers" tells us that it's of type "Inclusion" and it has a keyword of "numbers". <br>
 
@@ -56,10 +63,12 @@ The error is that an input has a symbol (and it shouldn't).<br>
 This is an error which can be categorized as an "inclusion" error (something I made up). These errors have messages of a certain format, for example "Name musn't include symbols" or "Password musn't contain first name".<br>
 
 If "Name" and "Password" can be found through the input's label, and "symbols" and "name" are a keyword, we can make a function that reproduces error messages like those:<br>
-
+```
 function inclusionErrorMessage(inputLabel, keyword) {<br>
 	return `${inputLabel} musn't include ${keyword}.`<br>
-}<br>
+}
+```
+<br>
 
 So now we have a type of error ("inclusion"), and a general way errors of that type should be formatted. What I've done is attach the two together. So any error code of type "inclusion" will have its error messages formatted in a certain way.<br>
 
