@@ -2,56 +2,56 @@
 ## Version 2 <br>
 
 ### What's Changed <br>
-Not much has changed, except I've tried my best to make the code look a lot better and readable. If I am being honest, I was trying to make my code look like the really smart people, so I made it very obscure and hard to understand by using one letter parameter identifiers and such. Fortunately, when I realized I didn't understand what my own code was doing, I knew I had made a mistake, and I worked on making the code more readable. The only exception is in the Checker.js file because who's going to stop me? Exactly! In reality, those functions weren't ** that ** important to make me want to do anything further, so I didn't.
+Not much has changed, except I've tried my best to make the code look a lot better and readable. If I am being honest, I was trying to make my code look like the really smart people, so I made it very obscure and hard to understand by using one letter parameter identifiers and such. Fortunately, when I realized I didn't understand what my own code was doing, I knew I had made a mistake, and I worked on making the code more readable. The only exception is in the Checker.js file because who's going to stop me? Exactly! In reality, those functions weren't **that** important to make me want to do anything further, so I didn't.
 
-** Adapting the Form Check **
+**Adapting the Form Check**
 Previously I had mentioned that there were default functions in the FormCheck class, and they would try and execute their mission. However, this would probably cause errors because not all HTML pages are the same, and not all elements are the same, and neither is the CSS for them.
 
 So what do I do? I don't implement anything! There's still an identifier used to retrieve certain inputs/elements, a function to get the value/data of an input, ditto with the name of an input, but I do not implement them at all in the FormCheck class. You must configure those. It's for the best. Anyway, these are the functions/variables you can rewrite<br>
 
 ```
-      #FCIdentifier = null<br>
-      #getData = (name) => {}<br>
-      #getName = (node) => {}<br>
-      #getRequirements = (node) => {}<br>
-      #getLabel = (name) => {}<br>
-      #addError = (name, label, error) => {}<br>
-      #delError = (name) => {}<br>
+      #FCIdentifier = null
+      #getData = (name) => {}
+      #getName = (node) => {}
+      #getRequirements = (node) => {}
+      #getLabel = (name) => {}
+      #addError = (name, label, error) => {}
+      #delError = (name) => {}
 ```
 
 and you can rewrite them via these functions:<br>
 
 ```
-      set FCIdentifier(identifier) {<br>
-            this.#FCIdentifier = identifier<br>
-      }<br>
+      set FCIdentifier(identifier) {
+            this.#FCIdentifier = identifier
+      }
 
-      set getData(f) {<br>
-            this.#getData = f<br>
-      }<br>
+      set getData(f) {
+            this.#getData = f
+      }
 
-      set getName(f) {<br>
-            this.#getName = f<br>
-      }<br>
+      set getName(f) {
+            this.#getName = f
+      }
 
-      set getRequirements(f) {<br>
-            this.#getRequirements = f<br>
-      }<br>
+      set getRequirements(f) {
+            this.#getRequirements = f
+      }
 
-      set getLabel(f) {<br>
-            this.#getLabel = f<br>
-      }<br>
+      set getLabel(f) {
+            this.#getLabel = f
+      }
 
-      set addError(f) {<br>
-            this.#addError = f<br>
-      }<br>
+      set addError(f) {
+            this.#addError = f
+      }
 
-      set delError(f) {<br>
-            this.#delError = f<br>
-      }<br>
+      set delError(f) {
+            this.#delError = f
+      }
 ```
 
-** Loading the Inputs **
+**Loading the Inputs**
 Previously on FormCheck, you'd pass in an element (of jQuery type), and we'd search for the inputs (that match the identifier) in said element. The same thing is still done here, except you don't have to pass in an element, jQuery is not used (I'm pretty sure jQuery is not used at all in the FormCheck system now), and you have other options too!<br>
 
 Basically loadInputs(form) turned into DOMLoad(p = {}). p is an object with properties (maybe, maybe not). If p has a property with a key of "parent" (and it's not undefined), we search for the elements in the value corresponding to "parent". If it's undefined, we search for the elements in the document, it's essentially a basic document.querySelector(...) at that point.<br>
@@ -100,7 +100,7 @@ Now that we have the inputs to evaluate, we go through each of them, and store i
 
 If you have an object where the keys are names of inputs and the values are the corresponding requirements (the requirements must be properly formatted, perhaps use the evaluateRequirement(...) function if you're ever in need), you can pass this object in, and consider the inputs loaded! Because that's all that loading the inputs really do. You're just attaching a name with requirements.
 
-** Parameters/Arguments in the Requirement Function **
+**Parameters/Arguments in the Requirement Function**
 A problem I had previously remarked was the issue of not being able to pass in arguments to the requirement functions. For example, lets say you had a function length(string, number) which returned true if the string's length was the same as the number and false if not. Getting the string was easy enough because I send the value/data of the input as an argument to all of the requirement functions, but I hadn't set up a way to pass in optional parameters, but now I have!<br>
 
 To keep it short and simple, lets say you wanted the input with a name of "password" to have a length of 20 characters. <br>
@@ -132,7 +132,7 @@ And because it's reusable you could also ** reuse ** the function with different
 <input name="phone" requirements="phone length(13)">
 ```
 
-The only thing to note here is that you cannot have extra spaces in the requirements attributes. Spaces are only to be used to delineate different requirement-function-names. This means that something like this would be ** WRONG AND CAUSE AN ERROR **
+The only thing to note here is that you cannot have extra spaces in the requirements attributes. Spaces are only to be used to delineate different requirement-function-names. This means that something like this would be **WRONG AND CAUSE AN ERROR**
 ```
 <input name="fname" requirements="name length( 20 )">
 ```
@@ -187,7 +187,7 @@ If<br>
 ```
 we use the requirements you give.<br>
 
-The same goes for the property "inputData". If you don't give a value, we just find the data/values ourselves via the getData function ** that you must set **. If you do give us an object where the key is the name and the value is the value/data of the input, we just use that.
+The same goes for the property "inputData". If you don't give a value, we just find the data/values ourselves via the getData function **that you must set**. If you do give us an object where the key is the name and the value is the value/data of the input, we just use that.
 
 I haven't mentioned every little aspect of this system, but I think that's okay because I can just look at the code. I also made the code so yeah B)
 
