@@ -1,0 +1,120 @@
+<html>
+      <head>
+            <title>Form Check Example</title>
+            <link rel="stylesheet" href="example.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+            <!-- 
+                  jQuery is used for the functionality of the custom inputs. It's not used in the Form_Check stuff.
+                  At least I think.
+             -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+            <script src="../../Form_Check_V3/Form_Check_V3/error.js"></script>
+            <script src="../../Form_Check_V3/Form_Check_V3/checker.js"></script>
+            <script src="../../Form_Check_V3/Form_Check_V3/require.js"></script>
+            <script src="../../Form_Check_V3/Form_Check_V3/FormCheck.js"></script>
+            <script src="../../Form_Check_V3/Form_Check_V3/configure.js"></script>
+            <script src="example.js"></script>
+      </head>
+      <body>
+            <form class="form-check">
+                  <div class="inputField">
+                        <label class="inputLabel">First Name</label>
+                        <input autocomplete="off" class="check input" name="fName" inputLabel="First name" requirements="name" type="text">
+                        <span class="errorMessage">Error Message</span>
+                  </div>
+                  <div class="inputField">
+                        <p>(CTRL+SHIFT+I) Change the number (5) in this input's length requirement.</p>
+                        <label class="inputLabel">Length (Testing Parameters)</label>
+                        <input autocomplete="off" class="check input" name="test" inputLabel="Length" requirements="length(5) name" type="text">
+                        <span class="errorMessage">Error Message</span>
+                  </div>
+                  <div class="inputField">
+                        <p>(CTRL+SHIFT+I) Enter a color.</p>
+                        <label class="inputLabel">Color (Testing Async)</label>
+                        <input autocomplete="off" class="check input" name="color" inputLabel="Length" requirements="colors" type="text">
+                        <span class="errorMessage">Error Message</span>
+                  </div>
+                  <div class="inputField">
+                        <label class="inputLabel">Last Name</label>
+                        <input autocomplete="off" class="check input" name="lName" inputLabel="Last name" requirements="name" type="text">
+                        <span class="errorMessage">Error Message</span>
+                  </div>
+                  <div class="inputField">
+                        <label class="inputLabel">Email</label>
+                        <input autocomplete="off" class="check input" name="email" inputLabel="Email" requirements="email" type="text">
+                        <span class="errorMessage">Error Message</span>
+                  </div>
+                  <div class="inputField">
+                        <label class="inputLabel">Phone Number</label>
+                        <input autocomplete="off" class="check input" name="phoneNumber" inputLabel="Phone number" requirements="phone" type="text">
+                        <span class="errorMessage">Error Message</span>
+                  </div>
+                  <div class="inputField">
+                        <label class="inputLabel">Contact Preference</label>
+                        <div class="segment three">
+                              <button value="Call" class="segmentButton">Call</button>
+                              <button value="Text" class="segmentButton">Text</button>
+                              <button value="Email" class="segmentButton">Email</button>
+                        </div>
+                        <input class="check" name="contactPreference" inputLabel="Contact preference" requirements="contactPreference" type="hidden">
+                        <span class="errorMessage">Error Message</span>
+                  </div>
+                  <div class="inputField">
+                        <label class="inputLabel">Vehicle Identification Number</label>
+                        <div class="level">
+                              <div class="inputSideCaption">VIN</div>
+                              <input autocomplete="off" class="check input" name="vin" inputLabel="VIN" requirements="vin" type="text">
+                        </div>
+                        <span class="errorMessage">Error Message</span>
+                  </div>
+                  <div class="segment">
+                        <label class="inputLabel">Vehicle</label>
+                        <div class="level">
+                              <div class="inputField">
+                                    <label class="inputLabel">Make</label>
+                                    <select class="check" name="make" inputLabel="Make" requirements="make">
+                                          <option>Make</option>
+                                          <option value="Make1">Make 1</option>
+                                          <option value="Make2">Make 2</option>
+                                          <option value="Make3">Make 3</option>
+                                    </select>
+                                    <span class="errorMessage">Error Message</span>
+                              </div>
+                              <div class="inputField">
+                                    <label class="inputLabel">Model</label>
+                                    <select class="check" name="model" inputLabel="Model" requirements="model">
+                                          <option>Model</option>
+                                          <option value="Model1">Model 1</option>
+                                          <option value="Model2">Model 2</option>
+                                          <option value="Model3">Model 3</option>
+                                    </select>
+                                    <span class="errorMessage">Error Message</span>
+                              </div>
+                              <div class="inputField">
+                                    <label class="inputLabel">Year</label>
+                                    <select class="check" name="year" inputLabel="Year" requirements="year">
+                                          <option>Year</option>
+                                          <option value="Year1">Year 1</option>
+                                          <option value="Year2">Year 2</option>
+                                          <option value="Year3">Year 3</option>
+                                    </select>
+                                    <span class="errorMessage">Error Message</span>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="inputField">
+                        <label class="inputLabel">Services</label>
+                        <div class="checkbox">
+                              <button value="Service1" class="checkboxItem"><span class="checkboxMark"></span>Service 1</button>
+                              <button value="Service2" class="checkboxItem"><span class="checkboxMark"></span>Service 2</button>
+                              <button value="Service3" class="checkboxItem"><span class="checkboxMark"></span>Service 3</button>
+                        </div>
+                        <input class="check" name="services" inputLabel="Services" requirements="services" type="hidden">
+                        <span class="errorMessage">Error Message</span>
+                  </div>
+                  <button id="submit">Submit Form</button>
+            </form>
+      </body>
+</html>
