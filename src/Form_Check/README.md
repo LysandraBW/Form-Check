@@ -5,23 +5,23 @@ Imagine that you wanted to create an input where a user enters in their email.<b
 The user enters in their email and presses submit.<br>
 You are now to validate that input.<br>
 You could set the input's type to "email", and have the HTML Overlords work their magic.
-However, to my knowledge, you wouldn't be able to manipulate or style the error message.
+However, to my knowledge, you wouldn't be able to manipulate or style the error message.<br>
 
 Imagine that you wanted to create an input where a user enters in a password.<br>
 The user enters in their password and presses submit.<br>
 You are now to validate that input.<br>
-There's not a type you can set this input that can verify said input for you.
+There's not a type you can set this input that can verify said input for you.<br>
 You'll have to go in there and do some digging. This input needs to be at least
-8 characters long, have a symbol, and have a number.
+8 characters long, have a symbol, and have a number.<br>
 
-This isn't an impossible thing to implement, but now imagine this.
+This isn't an impossible thing to implement, but now imagine this.<br>
 
-You have several inputs on your page that you need to verify. These functions aren't as
-simple as a phone number or a name, or maybe you'd prefer your own error messages and error styling.
+You have several inputs on your page that you need to verify.<br>These functions aren't as
+simple as a phone number or a name, or maybe you'd prefer your own error messages and error styling.<br>
 
-What can you possibly do?
-Introducing Form Check (Version 1)
-  -Dependencies: jQuery
+What can you possibly do?<br>
+Introducing Form Check (Version 1)<br>
+  -Dependencies: jQuery<br>
   
 1. Load inputs to be checked via an identifier. By default, elements with a class of "check" (if I can remember correctly) will be checked. Furthermore, you must pass in a jQuery element that is an ancestor to the inputs you want to check. This is so you can target specific elements instead of every input on the entire page. You can set the identifier that is used to find the inputs (really elements) that are to be checked via the overrideInputIdentifier(s) function, where s is a query that can be used to find elements.
 
