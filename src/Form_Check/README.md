@@ -1,15 +1,15 @@
-Form Check
-Version 1
+Form Check<br>
+Version 1<br>
 
-Imagine that you wanted to create an input where a user enters in their email. 
-The user enters in their email and presses submit.
-You are now to validate that input.
+Imagine that you wanted to create an input where a user enters in their email.<br>
+The user enters in their email and presses submit.<br>
+You are now to validate that input.<br>
 You could set the input's type to "email", and have the HTML Overlords work their magic.
 However, to my knowledge, you wouldn't be able to manipulate or style the error message.
 
-Imagine that you wanted to create an input where a user enters in a password.
-The user enters in their password and presses submit.
-You are now to validate that input.
+Imagine that you wanted to create an input where a user enters in a password.<br>
+The user enters in their password and presses submit.<br>
+You are now to validate that input.<br>
 There's not a type you can set this input that can verify said input for you.
 You'll have to go in there and do some digging. This input needs to be at least
 8 characters long, have a symbol, and have a number.
