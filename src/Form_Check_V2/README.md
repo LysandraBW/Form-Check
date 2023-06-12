@@ -145,7 +145,7 @@ If you want to pass in multiple parameters/arguments, use commas (with no spaces
 
 When creating a requirement function that takes in these parameters/arguments, keep in mind that the input's data/value is passed in first, and the arguments/parameters are passed in afterwards, in the order that they are received.<br>
 
-** Checking Inputs **
+**Checking Inputs**
 
 Previously on FormCheck, checkInputs() did not take any arguments, but check(p = {}) does! Well not exactly. If you don't supply it with any information whatsoever, it will run as it did in version 1, where it goes through the names, gets the data/values, runs the requirement functions, and so on and so forth.<br>
 
